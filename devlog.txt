@@ -14,7 +14,7 @@ st234pa -- 2016-12-03 5:49
 Wrote results.html.
 
 st234pa -- 2016-12-03 6:06
-Replaced bkgd.jpg to be something darker.
+Replaced bkgd.jpg to be something darker. Stretch to fit, no repeat.
 
 
 
