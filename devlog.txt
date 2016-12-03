@@ -1,0 +1,2 @@
+st234pa -- 2016-12-03 10:21
+Forgot to add this before, but made all the empty files. Removed style.css because that was already in foundation as app.css. Added idea paragraph to README.
