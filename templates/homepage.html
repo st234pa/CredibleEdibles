@@ -1,0 +1,131 @@
+{% extends "basic.html" %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>What kinds of credible edibles are you looking for?</h2>
+      <form action="/results/" method="GET">
+	<div class="row">
+	  <div class="col-lg-8">
+	    <p>Where are you, or where do you want to go?</p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-4">
+	    <div class="radio">
+	      <label><input type="radio" name="usecurrentloc">Use my current location</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-4">
+	    <div class="input-group">
+	      <span class="input-group-addon">
+		<input type="radio" aria-label="..." name="useaddress">
+	      </span>
+	      <input type="text" class="form-control" placeholder="Enter an address" aria-label="..." name="address">
+	    </div><!--input group-->
+	  </div><!--col-->
+	</div><!--row-->
+	<div class="row">
+	  <div class="col-lg-8">
+	    <br>
+	    <p>How far do you want to go from there?</p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="birdseye">Bird's Eye</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="fourblocks">4 Blocks</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="walking">Walking Distance</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="driving">Driving</label>
+	    </div><!--radio-->
+	  </div><!--col-->
+	</div><!--row-->
+	<div class="row">
+	  <div class="col-lg-8">
+	    <br>
+	    <p>How much would you be willing to pay?</p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="steal">$ (Steal)</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="cheap">$$ (Cheap)</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="pricey">$$$ (Pricey)</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="bougie">$$$$ (Bougie)</label>
+	    </div><!--radio-->
+	  </div><!--col2-->
+	</div><!--row-->
+	<div class="row">
+	  <div class="col-lg-8">
+	    <br>
+	    <p>How much qual do you want?</p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="onestar">Grimey</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="twostar">Edible</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="threestar">Meh</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="fourstar">Credible</label>
+	    </div>
+	  </div>
+	  <div class="col-lg-2">
+	    <div class="radio">
+	      <label><input type="radio" name="fivestar">Incredible</label>
+	    </div><!--radio-->
+	  </div><!--col2-->
+	</div><!--row-->
+	<div class="row">
+	  <div class="col-lg-8">
+	    <br>
+	    <button type="submit" class="btn btn-default">Find credible edibles!</button>
+	  </div>
+	</div>
+      </form>
+    </div><!--col8-->
+  </div><!--row-->
+</div><!--container-->
+
+{% endblock %}
