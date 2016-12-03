@@ -1,0 +1,56 @@
+{% extends "basic.html" %}
+{% block head %}
+<title>Credible Edibles: Results</title>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js"></script>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="map"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      {% for i in range(len(jsList)) %}
+      <h6>{{jsList[i]"title"]}}</h6>
+      <p>{{jsList[i]["address"]}}</p>
+      <br>
+      {% endblock %}
+    </div>
+  </div>
+</div>
+<script>
+  mapboxgl.accessToken = "your access token here";
+  var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v9',
+  center: {{loc}},
+  zoom: 3
+  });
+
+  map.on('load', function () {
+  map.addSource("points", {
+  "type": "geojson",
+  "data": {
+  "type": "FeatureCollection",
+  "features": {{jsList}}
+  }
+  });
+
+  map.addLayer({
+  "id": "points",
+  "type": "symbol",
+  "source": "points",
+  "layout": {
+  "icon-image": "{icon}-15",
+  "text-field": "{title}",
+  "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+  "text-offset": [0, 0.6],
+  "text-anchor": "top"
+  }
+  });
+  });
+</script>
+{% endblock %}

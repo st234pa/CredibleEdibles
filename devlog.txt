@@ -1,11 +1,17 @@
 st234pa -- 2016-12-03 10:21
 Forgot to add this before, but made all the empty files. Removed style.css because that was already in foundation as app.css. Added idea paragraph to README.
 
-st234-pa -- 2016-12-03 11:36
+st234pa -- 2016-12-03 11:36
 Wrote basic.html, switched to Bootstrap. Updated design doc. Added bkgd.jpg and style.css.
 
-st234-pa -- 2016-12-03 12:24
+st234pa -- 2016-12-03 12:24
 Finished homepage.html
+
+st234pa -- 2016-12-03 1:06
+Moved title to the head block in basic.html. Added title to head block in homepage.html.
+
+st234pa -- 2016-12-03 5:49
+Wrote results.html.
 
 
 
