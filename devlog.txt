@@ -1,7 +1,7 @@
 st234pa -- 2016-12-03 10:21
 Forgot to add this before, but made all the empty files. Removed style.css because that was already in foundation as app.css. Added idea paragraph to README.
 
-st234-pa -- 2016-12-03 10:38
-Wrote basic.html, switched to Bootstrap. Updated design doc. Custom style.css isn't really working???
+st234-pa -- 2016-12-03 11:36
+Wrote basic.html, switched to Bootstrap. Updated design doc. Added bkgd.jpg and style.css. 
 
 
