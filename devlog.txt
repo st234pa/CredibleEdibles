@@ -13,5 +13,9 @@ Moved title to the head block in basic.html. Added title to head block in homepa
 st234pa -- 2016-12-03 5:49
 Wrote results.html.
 
+st234pa -- 2016-12-03 6:06
+Replaced bkgd.jpg to be something darker.
+
+
 
 
