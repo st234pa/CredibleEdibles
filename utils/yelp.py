@@ -1,9 +1,48 @@
 import urllib2 
+import operator
+#import for Twitter access and encoding
+import string
+import sys
+import requests, json, urllib, urllib2, base64
 from requests_oauth2 import OAuth2
-OAuth2(client_id, client_secret, site, redirect_uri, [authorization_url='oauth/authorize'], [token_url='oauth/token'])
+from yelpapi import YelpAPI
+#OAuth2(client_id, client_secret, site, redirect_uri, [authorization_url='oauth/authorize'], [token_url='oauth/token'])
+#oauth2_handler = OAuth2(client_id, client_secret, "https://www.facebook.com/", "http://yoursite.com/webhook", "dialog/oauth", "oauth/access_token")
+#authorization_url = oauth2_handler.authorize_url('email')
 
- oauth2_handler = OAuth2(client_id, client_secret, "https://www.facebook.com/", "http://yoursite.com/webhook", "dialog/oauth", "oauth/access_token")
-authorization_url = oauth2_handler.authorize_url('email')
+
+# class Oauth1Authenticator(object):
+
+#     def __init__(
+#         self,
+#         consumer_key,
+#         consumer_secret,
+#         token,
+#         token_secret
+#     ):
+#         self.consumer = oauth2.Consumer(consumer_key, consumer_secret)
+#         self.token = oauth2.Token(token, token_secret)
+
+#     def sign_request(self, url, url_params={}):
+#         oauth_request = oauth2.Request(
+#             method="GET",
+#             url=url,
+#             parameters=url_params
+#         )
+#         oauth_request.update(
+#             {
+#                 'oauth_nonce': oauth2.generate_nonce(),
+#                 'oauth_timestamp': oauth2.generate_timestamp(),
+#                 'oauth_token': self.token.key,
+#                 'oauth_consumer_key': self.consumer.key
+#             }
+#         )
+#         oauth_request.sign_request(
+#             oauth2.SignatureMethod_HMAC_SHA1(),
+#             self.consumer,
+#             self.token
+#         )
+#         return oauth_request.to_url()
 
 
 # This prepates the credentials for Twitter
@@ -13,91 +52,49 @@ def get_credentials():
     creds['consumer_key'] = str()
     creds['consumer_secret'] = str()
     #get credentials
-    creds['consumer_key'] = "JRRQwIBrhimuwIffw9ZlncDSg" #might have to change as API key expires
-    creds['consumer_secret'] = "kfsbDKfo8VHVhb1IKhhmX45I1sMnyfSqDJrBdK2MRkURWwAwxD"
+    creds['consumer_key'] = "Ov-ytNFKKBZfdHYTkdQAoQ" #might have to change as API key expires
+    creds['consumer_secret'] = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
     return creds
 
-def oauth(credentials):
-    try:
+#def oauth(credentials):
+
+def oauth():
+	yelp_api = YelpAPI("Ov-ytNFKKBZfdHYTkdQAoQ", "b1z2H2DCRH4hf4aQo1zqaTyYYJA", "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk","CNMwy2PUHaXTyXTQe4Qv2lk4BuE")
+	search_results = yelp_api.search_query(term='Neptune Oyster', location='Boston, MA')
+	print search_results
+
+
+    #try:
         #Encode creds
-        encoded_credentials = base64.b64encode(credentials['consumer_key'] + ':' + credentials['consumer_secret'])
-        #Prepare URL and HTTP parameters
-        post_url = "https://api.twitter.com/oauth2/token"
-        parameters = {'grant_type' : 'client_credentials'}
-        #Prepare headers
-        auth_headers = {
-            "Authorization" : "Basic %s" % encoded_credentials,
-            "Content-Type"  : "application/x-www-form-urlencoded;charset=UTF-8"
-            }
+    # encoded_credentials = base64.b64encode(credentials['consumer_key'] + ':' + credentials['consumer_secret'])
+    # #Prepare URL and HTTP parameters
+    # post_url = "https://api.yelp.com/v2/search/?"
+    # parameters = {'grant_type' : 'client_credentials'}
+    # #Prepare headers
+    # auth_headers = {
+    #     "Authorization" : "Basic %s" % encoded_credentials,
+    #     "Content-Type"  : "application/x-www-form-urlencoded;charset=UTF-8"
+    # }
+    # print "hi"
+    # # Make a POST call
+    # results = requests.post(url=post_url, data=urllib.urlencode(parameters), headers=auth_headers)
+    # response = results.json()
 
-        # Make a POST call
-        results = requests.post(url=post_url, data=urllib.urlencode(parameters), headers=auth_headers)
-        response = results.json()
+    # # Store the access_token and token_type for further use
+    # auth = {}
+    # #auth['access_token'] = response['access_token']
+    # auth['access_token'] = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
+    # auth['token_type']   = response['token_type']
 
-        # Store the access_token and token_type for further use
-        auth = {}
-        auth['access_token'] = response['access_token']
-        auth['token_type']   = response['token_type']
-
-        return auth
-    except Exception as e:
-        print "Failed to authenticate with Twitter credentials:", e
-        print "Twitter consumer key:", credentials['consumer_key']
-        print "Twitter consumer secret:", credentials['consumer_secret']
-        sys.exit()
-
-def get_tweets_timeline(screen_name, num_tweets, auth):
-    # This collection will hold the Tweets as they are returned from Twitter
-    collection = []
+    # return auth
     
-    # Prepare GET call, timeline URL, headers, parameters
-    url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
-    timeline_headers = {
-        "Authorization" : "Bearer %s" % auth['access_token']
-    }
-    parameters = {
-        'screen_name' : screen_name,
-        'count' : num_tweets,
-        'lang' : 'en'
-    }
-    
-    # Construct actual url to send to Twitter to get the timeline tweets
-    get_url = url + '?' + urllib.urlencode(parameters)
-
-    # Make the GET call to Twitter
-    results = requests.get(url=get_url, headers=timeline_headers)
-    #Twitter RESPONSE in JSON format.. YAY!
-    response = results.json()
-    #if (response.empty()):
-    #    print "Twitter gave an empty response.  Do you have a valid username? Do you have tweets?"
-    return response
-
-def FStoD():
-    d = {}
-    form_data = cgi.FieldStorage()
-    for k in form_data.keys():
-       d[k] = form_data[k].value
-    return d
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # #except Exception as e:
+    # #print "Failed to authenticate with Twitter credentials:", e
+    # #print "Twitter consumer key:", credentials['consumer_key']
+    # #print "Twitter consumer secret:", credentials['consumer_secret']
+    # sys.exit()
 
 
 #making and parsing a REST call in python
@@ -125,11 +122,8 @@ def FStoD():
 # 		oauth
 # 			more in depth authentication
 
-
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
-def makeBusinessesList():
-
-
+#def makeBusinessesList():
 
 
 #takes the business list and reformats it so steph can use it in JS
@@ -137,12 +131,15 @@ def makeBusinessesList():
 # "geometry": { "type": "Point", "coordinates": [-77.03238901390978, 38.913188059745586]},
 # "properties": {"title": "Mapbox DC","icon": "monument"}
 # }
-def makeJsList(bizList):
-
-
+#def makeJsList(bizList):
 
 
 
 #reads directly from the API
 def getSearchResults(lat, long, price, rating, distance):
-	results = urllib2.urlopen("https://api.yelp.com/v2/search?")
+	print get_credentials()
+	#results = urllib2.urlopen("https://api.yelp.com/v2/search?")
+
+
+
+oauth()
