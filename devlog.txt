@@ -38,6 +38,8 @@ Added static/, moved bootstrap/ there. Fixed stylesheet links accordingly. Remov
 st234pa -- 2016-12-06 2:48
 Hopefully fixed iteration through jsList in jinja of results.html.
 
+st234pa -- 2016-12-06 2:55
+Fixed stylesheet links.
 
 
 
