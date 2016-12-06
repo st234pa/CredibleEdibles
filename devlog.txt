@@ -16,6 +16,14 @@ Wrote results.html.
 st234pa -- 2016-12-03 6:06
 Replaced bkgd.jpg to be something darker. Stretch to fit, no repeat.
 
+skabir8 -- 2016-12-06 11:05
+Fixed an issue with the request method. Added in code for the distance and ratings.
+
+skabir8 -- 2016-12-06 01:30
+Added fxns for price and location. Put in code for the googlemaps and yelp api codes in flask. 
+
+
+
 
 
 
