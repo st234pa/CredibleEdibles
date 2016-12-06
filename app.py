@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, url_for, session, redirect
+from flask_bootstrap import Bootstrap
+
 #import os
 #import utils.googlemaps
 #import utils.yelp
@@ -6,13 +8,15 @@ from flask import Flask, render_template, request, url_for, session, redirect
 
 
 app = Flask(__name__)
+Bootstrap(app)
+
 #app.secret_key = os.urandom(10)
 
 
 
 @app.route("/")
 def main():
-    return render_template('homepage.html')
+    return render_template('basic.html')
 
 
 @app.route("/results/", methods=['POST'])
