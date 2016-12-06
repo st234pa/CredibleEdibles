@@ -20,6 +20,8 @@ def main():
 def results():
     print request.form
     distance = getDis(request.form)
+    price = getPrice(request.form)
+    rating = getRating(request.form)
     return render_template('results.html')
 
 
@@ -34,8 +36,30 @@ def getDis(data):
         distance='driving' 
     return distance
 
+def getPrice(data):
+    if 'steal' in data:
+        price='steal'
+    elif 'cheap' in data:
+        price='cheap'
+    elif 'pricey' in data:
+        price='pricey'
+    elif 'bougie' in data:
+        price='bougie'
+    return price
 
-			
+def getRating(data):
+    if 'onestar' in data:
+        qual='onestar'
+    elif 'twostar' in data:
+        qual = 'twostar'
+    elif 'threestar' in data:
+        qual = 'threestar'
+    elif 'fourstar' in data:
+        qual = 'fourstar'
+    elif 'fivestar' in data:
+        qual = 'fivestar'
+
+
 
 
 
