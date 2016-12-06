@@ -26,6 +26,10 @@ Added fxns for price and location. Put in code for the googlemaps and yelp api c
 st234pa -- 2016-12-06 02:11
 Fixed the jinja typo in results.html.
 
+st234pa -- 2016-12-06 02:19
+Commented out utils and os stuff in app.py
+
+
 
 
 
