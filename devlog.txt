@@ -23,6 +23,9 @@ skabir8 -- 2016-12-06 01:30
 Added fxns for price and location. Put in code for the googlemaps and yelp api codes in flask. 
 
 
+st234pa -- 2016-12-06 02:11
+Fixed the jinja typo in results.html.
+
 
 
 
