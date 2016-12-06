@@ -35,6 +35,10 @@ Added flask_bootstrap
 st234pa -- 2016-12-06 2:42
 Added static/, moved bootstrap/ there. Fixed stylesheet links accordingly. Removed flask_bootstrap. Switched back to homepage.html for main() in app.py.
 
+st234pa -- 2016-12-06 2:48
+Hopefully fixed iteration through jsList in jinja of results.html.
+
+
 
 
 
