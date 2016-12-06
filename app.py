@@ -22,6 +22,13 @@ def results():
     distance = getDis(request.form)
     price = getPrice(request.form)
     rating = getRating(request.form)
+    address = getAddress(request.form)
+    #businessList = utils.yelp.makeBusinessesList(getSearchResults(address1,address2,price,rating,distance))
+    #jsList = utils.yelp.makeJsList(businessList)
+    print distance
+    print price
+    print rating
+    #return render_template('results.html', jsList=jsList,businessList=businessList)
     return render_template('results.html')
 
 
@@ -59,7 +66,16 @@ def getRating(data):
     elif 'fivestar' in data:
         qual = 'fivestar'
 
-
+def getAddress(data):
+    address=''
+    if 'usecurrentloc' in data:
+        #address=utils.googlemaps.locate()
+        print 'placeholder'
+    else:
+        address=data['address']
+    return address
+    
+			
 
 
 
