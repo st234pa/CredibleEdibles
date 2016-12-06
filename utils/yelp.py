@@ -1,6 +1,4 @@
 import urllib2 
-import operator
-#import for Twitter access and encoding
 import string
 import sys
 import requests, json, urllib, urllib2, base64
@@ -55,6 +53,43 @@ def get_credentials():
     creds['consumer_key'] = "Ov-ytNFKKBZfdHYTkdQAoQ" #might have to change as API key expires
     creds['consumer_secret'] = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
     return creds
+
+
+def get_search_parameters(lat,long):
+  #See the Yelp API for more details
+  params = {}
+  params["term"] = "restaurant"
+  params["ll"] = "{},{}".format(str(lat),str(long))
+  params["radius_filter"] = "2000"
+  params["limit"] = "10"
+  return params
+
+
+
+
+def get_results(params):
+ 
+  #Obtain these from Yelp's manage access page
+  consumer_key = "YOUR_KEY"
+  consumer_secret = "YOUR_SECRET"
+  token = "YOUR_TOKEN"
+  token_secret = "YOUR_TOKEN_SECRET"
+   
+  session = rauth.OAuth1Session(
+    consumer_key = consumer_key
+    ,consumer_secret = consumer_secret
+    ,access_token = token
+    ,access_token_secret = token_secret)
+     
+  request = session.get("http://api.yelp.com/v2/search",params=params)
+   
+  #Transforms the JSON API response into a Python dictionary
+  data = request.json()
+  session.close()
+   
+  return data
+
+
 
 #def oauth(credentials):
 
