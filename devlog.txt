@@ -32,7 +32,8 @@ Commented out utils and os stuff in app.py
 skabir8 -- 2016-12-06 02:29
 Added flask_bootstrap
 
-
+st234pa -- 2016-12-06 2:42
+Added static/, moved bootstrap/ there. Fixed stylesheet links accordingly. Removed flask_bootstrap.
 
 
 

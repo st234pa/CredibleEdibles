@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, session, redirect
-from flask_bootstrap import Bootstrap
+#from flask_bootstrap import Bootstrap
 
 #import os
 #import utils.googlemaps
@@ -8,7 +8,7 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
-Bootstrap(app)
+#Bootstrap(app)
 
 #app.secret_key = os.urandom(10)
 
