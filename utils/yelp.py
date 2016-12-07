@@ -2,10 +2,8 @@ import urllib2
 import string
 import sys
 import requests, json, urllib, urllib2, base64
-import oauth
-import oauth2
 from requests_oauth2 import OAuth2
-from rauth import oauth
+import rauth
 
 # This prepates the credentials for Twitter
 # def get_credentials():
@@ -64,47 +62,7 @@ def main():
      
   ##Do other processing
 
-print get_results(get_search_parameters(90.22,100.04))
-
-#def oauth(credentials):
-
-# def oauth():
-# 	yelp_api = YelpAPI("Ov-ytNFKKBZfdHYTkdQAoQ", "b1z2H2DCRH4hf4aQo1zqaTyYYJA", "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk","CNMwy2PUHaXTyXTQe4Qv2lk4BuE")
-# 	search_results = yelp_api.search_query(term='Neptune Oyster', location='Boston, MA')
-# 	print search_results
-
-
-    #try:
-        #Encode creds
-    # encoded_credentials = base64.b64encode(credentials['consumer_key'] + ':' + credentials['consumer_secret'])
-    # #Prepare URL and HTTP parameters
-    # post_url = "https://api.yelp.com/v2/search/?"
-    # parameters = {'grant_type' : 'client_credentials'}
-    # #Prepare headers
-    # auth_headers = {
-    #     "Authorization" : "Basic %s" % encoded_credentials,
-    #     "Content-Type"  : "application/x-www-form-urlencoded;charset=UTF-8"
-    # }
-    # print "hi"
-    # # Make a POST call
-    # results = requests.post(url=post_url, data=urllib.urlencode(parameters), headers=auth_headers)
-    # response = results.json()
-
-    # # Store the access_token and token_type for further use
-    # auth = {}
-    # #auth['access_token'] = response['access_token']
-    # auth['access_token'] = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
-    # auth['token_type']   = response['token_type']
-
-    # return auth
-    
-
-
-    # #except Exception as e:
-    # #print "Failed to authenticate with Twitter credentials:", e
-    # #print "Twitter consumer key:", credentials['consumer_key']
-    # #print "Twitter consumer secret:", credentials['consumer_secret']
-    # sys.exit()
+print get_results(get_search_parameters(40.43,-73.00))
 
 
 #making and parsing a REST call in python

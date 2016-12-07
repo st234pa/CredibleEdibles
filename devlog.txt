@@ -47,6 +47,9 @@ Right now, of the addresses that we get, we work with the first one. This could 
 Renamed mapbox.py to geomapbox.py
 Finished geocode(address) which takes an address string input and returns a list containing coordinates
 
+ogal7 -- 2016-12-06
+Got rauth to work, yelp.py successfully loads json object when given coordinates
+
 
 
 
