@@ -41,6 +41,10 @@ Hopefully fixed iteration through jsList in jinja of results.html.
 st234pa -- 2016-12-06 2:55
 Fixed stylesheet links.
 
+P0rkins -- 2016-12-06
+Installed mapbox python module.
+Right now, of the addresses that we get, we work with the first one. This could be changed in the future if it's a problem.
+
 
 
 
