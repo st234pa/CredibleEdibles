@@ -43,6 +43,8 @@ def get_results(params):
   #Transforms the JSON API response into a Python dictionary
   data = request.json()
   session.close()  
+  print data
+  print "\n\n\n\n"
   return data
      
   
@@ -50,15 +52,17 @@ def get_results(params):
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
 #shit i need to return: name, coordinates, rating, address, image
 def makeBusinessesList(rating, distance):
-	biz = {}
+	biz = []
 	nasty = get_results(get_search_parameters(40.7179,-74.014,distance))
 	for icky in nasty['businesses']:
 		if icky['rating'] >= rating:
-			placeInfo = []
-			placeInfo.append(icky['rating'])
-			placeInfo.append(icky['location']['display_address'])
-			placeInfo.append(icky['location']['coordinate'])
-			biz[icky['name']] = placeInfo
+			placeInfo = {}
+			placeInfo['rating'] = icky['rating']
+			placeInfo['address'] = icky['location']['display_address']
+			placeInfo['coord'] = icky['location']['coordinate']		
+			bigdict = {}
+			bigdict[icky['name']] = placeInfo
+			biz.append(bigdict)
 	return biz
 	
 		
@@ -70,15 +74,20 @@ def makeBusinessesList(rating, distance):
 
 def makeJsList(bizList):
 	returnList = []
-	for key in bizList:
-		placeDict = {}
-		coor = []
-		lat = bizList[key][2]['latitude']
-		lon = bizList[key][2]['longitude']
-		placeDict["type"] = "Feature"
-		placeDict["geometry"] = {"type": "Point", "coordinates": [lat, lon]}
-		placeDict["properties"] = {"title": str(key), "icon":"monument"}
-	return placeDict
+	i = 0
+	for item in bizList:
+		for key in item:
+			placeDict = {}
+			coor = []
+			lat = bizList[i][key]['coord']['latitude']
+			lon = bizList[i][key]['coord']['longitude']
+			placeDict["type"] = "Feature"
+			placeDict["geometry"] = {"type": "Point", "coordinates": [lat, lon]}
+			placeDict["properties"] = {"title": str(key), "icon":"monument"}
+			returnList.append(placeDict)
+			i+=1
+	return returnList	
+	
 
 
 print makeJsList(makeBusinessesList(4, 800))
