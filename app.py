@@ -1,17 +1,16 @@
-from flask import Flask, render_template, request, url_for, session, redirect
+#!/usr/bin/python
+from flask import Flask, render_template, request, session, redirect, url_for
 #from flask_bootstrap import Bootstrap
 
 #import os
 #import utils.googlemaps
-import utils.yelp
+from utils import yelp
 #import utils.mapbox
-
 
 app = Flask(__name__)
 #Bootstrap(app)
 
 #app.secret_key = os.urandom(10)
-
 
 
 @app.route("/")
