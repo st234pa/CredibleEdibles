@@ -26,8 +26,8 @@ def results():
     price = getPrice(request.form)
     rating = getRating(request.form)
     address = getAddress(request.form)
-    #businessList = utils.yelp.makeBusinessesList(getSearchResults(address1,address2, rating,distance))
-    #jsList = utils.yelp.makeJsList(businessList)
+    businessList = utils.yelp.makeBusinessesList(rating, distance, lat, longi)
+    jsList = utils.yelp.makeJsList(businessList)
     print distance
     #print price
     print rating
