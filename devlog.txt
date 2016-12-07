@@ -59,4 +59,9 @@ Started work on Google Maps Geolocation API stuff
 ogal7 -- 2016-12-07 1:52
 Finished yelp.py and modifications to app.py to link it up with yelp.py
 
+skabir8 -- 2016-12-07 2:52
+Changed up how the rating and distance worked in app.py
+fixed up results.html. used jinja to show the list of things near you with title and location
+Attempted to fix mapbox, but theres a conflict in the stylesheets
+
 
