@@ -1,7 +1,7 @@
 import urllib2 
-import string
 import sys
-import requests, json, urllib, urllib2, base64
+from flask import request
+import json, urllib, base64
 from requests_oauth2 import OAuth2
 import rauth
 
@@ -83,7 +83,7 @@ def makeJsList(bizList):
 			lat = bizList[i][key]['coord']['latitude']
 			lon = bizList[i][key]['coord']['longitude']
 			placeDict["type"] = "Feature"
-			placeDict["geometry"] = {"type": "Point", "coordinates": [lat, lon]}
+			placeDict["geometry"] = {"type": "Point", "coordinates": [lon, lat]}
 			placeDict["properties"] = {"title": str(key), "icon":"monument"}
 			returnList.append(placeDict)
 			i+=1

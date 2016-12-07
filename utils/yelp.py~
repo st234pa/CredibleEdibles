@@ -1,9 +1,11 @@
 import urllib2 
-import string
 import sys
-import requests, json, urllib, urllib2, base64
+from flask import request
+import json, urllib, base64
 from requests_oauth2 import OAuth2
 import rauth
+
+#oauth help: creds to http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
 
 #distance is in meters, this is **from the form**
 def get_search_parameters(lat,longi,distance):
@@ -27,7 +29,6 @@ def get_search_parameters(lat,longi,distance):
 
 def get_results(params):
  
-  #Obtain these from Yelp's manage access page
   consumer_key = "Ov-ytNFKKBZfdHYTkdQAoQ"
   consumer_secret = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
   token = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
@@ -38,19 +39,19 @@ def get_results(params):
     ,consumer_secret = consumer_secret
     ,access_token = token
     ,access_token_secret = token_secret)
-     
+  #returns a json object, sends a get request, returns a Response Object   
   request = session.get("http://api.yelp.com/v2/search",params=params)  
-  #Transforms the JSON API response into a Python dictionary
+  #returns a python dictionary, converted from json
   data = request.json()
   session.close()  
-  print data
-  print "\n\n\n\n"
+  #print data
+  #print "\n\n\n\n"
   return data
      
   
 
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
-#shit i need to return: name, coordinates, rating, address, image
+#shiz i need to return: name, coordinates, rating, address, image
 def makeBusinessesList(rating, distance, lat, longi):
 	biz = []
 	nasty = get_results(get_search_parameters(lat,longi,distance))
