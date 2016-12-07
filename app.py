@@ -26,10 +26,10 @@ def results():
     price = getPrice(request.form)
     rating = getRating(request.form)
     address = getAddress(request.form)
-    #businessList = utils.yelp.makeBusinessesList(getSearchResults(address1,address2,price,rating,distance))
+    #businessList = utils.yelp.makeBusinessesList(getSearchResults(address1,address2, rating,distance))
     #jsList = utils.yelp.makeJsList(businessList)
     print distance
-    print price
+    #print price
     print rating
     #return render_template('results.html', jsList=jsList,businessList=businessList)
     return render_template('results.html')
@@ -46,7 +46,7 @@ def getDis(data):
         distance='driving' 
     return distance
 
-def getPrice(data):
+'''def getPrice(data):
     if 'steal' in data:
         price='steal'
     elif 'cheap' in data:
@@ -56,7 +56,7 @@ def getPrice(data):
     elif 'bougie' in data:
         price='bougie'
     return price
-
+'''
 def getRating(data):
     if 'onestar' in data:
         qual='onestar'

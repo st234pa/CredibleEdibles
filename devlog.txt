@@ -50,7 +50,8 @@ Finished geocode(address) which takes an address string input and returns a list
 ogal7 -- 2016-12-06
 Got rauth to work, yelp.py successfully loads json object when given coordinates
 
-
+st234pa -- 2016-12-06 12:52
+Got rid of price level in homepage.html, app.py.
 
 
 
