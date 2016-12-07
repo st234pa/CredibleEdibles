@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for, session, redirect
 
 #import os
 #import utils.googlemaps
-#import utils.yelp
+import utils.yelp
 #import utils.mapbox
 
 
@@ -23,27 +23,27 @@ def main():
 def results():
     print request.form
     distance = getDis(request.form)
-    price = getPrice(request.form)
+    #price = getPrice(request.form)
     rating = getRating(request.form)
     address = getAddress(request.form)
-    businessList = utils.yelp.makeBusinessesList(rating, distance, lat, longi)
-    jsList = utils.yelp.makeJsList(businessList)
-    print distance
-    #print price
     print rating
+    print distance
+    businessList = utils.yelp.makeBusinessesList(rating,distance,40.7179460,-74.0139050)
+    jsList = utils.yelp.makeJsList(businessList)
+    #print price
     #return render_template('results.html', jsList=jsList,businessList=businessList)
-    return render_template('results.html')
+    return render_template('results.html',jsList=jsList,businessList=businessList)
 
 
 def getDis(data):
     if 'birdseye' in data:
-        distance='birdseye'
+        distance=50
     elif 'fourblocks' in data:
-        distance='fourblocks'
+        distance=400
     elif 'walking' in data:
-        distance='walking'
+        distance=800
     elif 'driving' in data:
-        distance='driving' 
+        distance=2000
     return distance
 
 '''def getPrice(data):
@@ -59,15 +59,16 @@ def getDis(data):
 '''
 def getRating(data):
     if 'onestar' in data:
-        qual='onestar'
+        qual=1
     elif 'twostar' in data:
-        qual = 'twostar'
+        qual = 2
     elif 'threestar' in data:
-        qual = 'threestar'
+        qual = 3
     elif 'fourstar' in data:
-        qual = 'fourstar'
+        qual = 4
     elif 'fivestar' in data:
-        qual = 'fivestar'
+        qual = 5
+    return qual
 
 def getAddress(data):
     address=''

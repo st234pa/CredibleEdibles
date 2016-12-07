@@ -16,7 +16,15 @@
   <div class="row">
     <div class="col-lg-8">
       {% for i in jsList %}
-      <h6>{{i["title"]}}</h6>
+	  
+      <h6> {{i['properties']['title']}}</h6>
+	  {% for x in businessList %}
+		{% if i['properties']['title'] in x %}
+			{% for l in x[i['properties']['title']]['address'] %}
+			{{l}}
+			 {% endfor %}
+		{% endif %}
+	  {% endfor %}
       <p>{{i["address"]}}</p>
       <br>
       {% endfor %}

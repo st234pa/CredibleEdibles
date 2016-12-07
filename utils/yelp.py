@@ -90,7 +90,7 @@ def makeJsList(bizList):
 	
 
 
-print makeJsList(makeBusinessesList(4, 800))
+#print makeJsList(makeBusinessesList(4, 800))
 #reads directly from the API
 #def getSearchResults(lat, long, price, rating, distance):
 	
