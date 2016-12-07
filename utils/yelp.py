@@ -83,7 +83,7 @@ def makeJsList(bizList):
 			lat = bizList[i][key]['coord']['latitude']
 			lon = bizList[i][key]['coord']['longitude']
 			placeDict["type"] = "Feature"
-			placeDict["geometry"] = {"type": "Point", "coordinates": [lat, lon]}
+			placeDict["geometry"] = {"type": "Point", "coordinates": [lon, lat]}
 			placeDict["properties"] = {"title": str(key), "icon":"monument"}
 			returnList.append(placeDict)
 			i+=1
