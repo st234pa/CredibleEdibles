@@ -64,4 +64,8 @@ Changed up how the rating and distance worked in app.py
 fixed up results.html. used jinja to show the list of things near you with title and location
 Attempted to fix mapbox, but theres a conflict in the stylesheets
 
+P0rkins -- 2016-12-07 2:37
+Switching to python geolocation, gmaps wasn't working
+nvm finished locate with googledocs. googlemaps.py done
+
 
