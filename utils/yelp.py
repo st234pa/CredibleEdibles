@@ -2,78 +2,41 @@ import urllib2
 import string
 import sys
 import requests, json, urllib, urllib2, base64
+import oauth
+import oauth2
 from requests_oauth2 import OAuth2
-from yelpapi import YelpAPI
-#OAuth2(client_id, client_secret, site, redirect_uri, [authorization_url='oauth/authorize'], [token_url='oauth/token'])
-#oauth2_handler = OAuth2(client_id, client_secret, "https://www.facebook.com/", "http://yoursite.com/webhook", "dialog/oauth", "oauth/access_token")
-#authorization_url = oauth2_handler.authorize_url('email')
-
-
-# class Oauth1Authenticator(object):
-
-#     def __init__(
-#         self,
-#         consumer_key,
-#         consumer_secret,
-#         token,
-#         token_secret
-#     ):
-#         self.consumer = oauth2.Consumer(consumer_key, consumer_secret)
-#         self.token = oauth2.Token(token, token_secret)
-
-#     def sign_request(self, url, url_params={}):
-#         oauth_request = oauth2.Request(
-#             method="GET",
-#             url=url,
-#             parameters=url_params
-#         )
-#         oauth_request.update(
-#             {
-#                 'oauth_nonce': oauth2.generate_nonce(),
-#                 'oauth_timestamp': oauth2.generate_timestamp(),
-#                 'oauth_token': self.token.key,
-#                 'oauth_consumer_key': self.consumer.key
-#             }
-#         )
-#         oauth_request.sign_request(
-#             oauth2.SignatureMethod_HMAC_SHA1(),
-#             self.consumer,
-#             self.token
-#         )
-#         return oauth_request.to_url()
-
+from rauth import oauth
 
 # This prepates the credentials for Twitter
-def get_credentials():
-    #initialize to empty
-    creds = {}
-    creds['consumer_key'] = str()
-    creds['consumer_secret'] = str()
-    #get credentials
-    creds['consumer_key'] = "Ov-ytNFKKBZfdHYTkdQAoQ" #might have to change as API key expires
-    creds['consumer_secret'] = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
-    return creds
+# def get_credentials():
+#     #initialize to empty
+#     creds = {}
+#     creds['consumer_key'] = str()
+#     creds['consumer_secret'] = str()
+#     #get credentials
+#     creds['consumer_key'] = "Ov-ytNFKKBZfdHYTkdQAoQ" #might have to change as API key expires
+#     creds['consumer_secret'] = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
+#     return creds
 
 
-def get_search_parameters(lat,long):
+def get_search_parameters(lat,longi):
   #See the Yelp API for more details
   params = {}
   params["term"] = "restaurant"
-  params["ll"] = "{},{}".format(str(lat),str(long))
+  params["ll"] = "{},{}".format(str(lat),str(longi))
   params["radius_filter"] = "2000"
   params["limit"] = "10"
   return params
 
 
 
-
 def get_results(params):
  
   #Obtain these from Yelp's manage access page
-  consumer_key = "YOUR_KEY"
-  consumer_secret = "YOUR_SECRET"
-  token = "YOUR_TOKEN"
-  token_secret = "YOUR_TOKEN_SECRET"
+  consumer_key = "Ov-ytNFKKBZfdHYTkdQAoQ"
+  consumer_secret = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
+  token = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
+  token_secret = "CNMwy2PUHaXTyXTQe4Qv2lk4BuE"
    
   session = rauth.OAuth1Session(
     consumer_key = consumer_key
@@ -90,13 +53,25 @@ def get_results(params):
   return data
 
 
+def main():
+  locations = [(39.98,-82.98),(42.24,-83.61),(41.33,-89.13)]
+  api_calls = []
+  for lat,long in locations:
+    params = get_search_parameters(lat,long)
+    api_calls.append(get_results(params))
+    #Be a good internet citizen and rate-limit yourself
+    time.sleep(1.0)
+     
+  ##Do other processing
+
+print get_results(get_search_parameters(90.22,100.04))
 
 #def oauth(credentials):
 
-def oauth():
-	yelp_api = YelpAPI("Ov-ytNFKKBZfdHYTkdQAoQ", "b1z2H2DCRH4hf4aQo1zqaTyYYJA", "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk","CNMwy2PUHaXTyXTQe4Qv2lk4BuE")
-	search_results = yelp_api.search_query(term='Neptune Oyster', location='Boston, MA')
-	print search_results
+# def oauth():
+# 	yelp_api = YelpAPI("Ov-ytNFKKBZfdHYTkdQAoQ", "b1z2H2DCRH4hf4aQo1zqaTyYYJA", "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk","CNMwy2PUHaXTyXTQe4Qv2lk4BuE")
+# 	search_results = yelp_api.search_query(term='Neptune Oyster', location='Boston, MA')
+# 	print search_results
 
 
     #try:
@@ -171,10 +146,6 @@ def oauth():
 
 
 #reads directly from the API
-def getSearchResults(lat, long, price, rating, distance):
-	print get_credentials()
-	#results = urllib2.urlopen("https://api.yelp.com/v2/search?")
+#def getSearchResults(lat, long, price, rating, distance):
+	
 
-
-
-oauth()
