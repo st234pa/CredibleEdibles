@@ -51,9 +51,9 @@ def get_results(params):
 
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
 #shit i need to return: name, coordinates, rating, address, image
-def makeBusinessesList(rating, distance):
+def makeBusinessesList(rating, distance, lat, longi):
 	biz = []
-	nasty = get_results(get_search_parameters(40.7179,-74.014,distance))
+	nasty = get_results(get_search_parameters(lat,longi,distance))
 	for icky in nasty['businesses']:
 		if icky['rating'] >= rating:
 			placeInfo = {}
