@@ -18,6 +18,4 @@ def geocode(address):
     response = data.encode('utf8')
     #turns into dictionary
     dic = json.loads(response)
-    
-
-geocode('110 Martense St.')
+    return dic['features'][0]['geometry']['coordinates']

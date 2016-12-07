@@ -44,6 +44,9 @@ Fixed stylesheet links.
 P0rkins -- 2016-12-06
 Installed mapbox python module.
 Right now, of the addresses that we get, we work with the first one. This could be changed in the future if it's a problem.
+Renamed mapbox.py to geomapbox.py
+Finished geocode(address) which takes an address string input and returns a list containing coordinates
+
 
 
 
