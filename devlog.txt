@@ -47,7 +47,7 @@ Right now, of the addresses that we get, we work with the first one. This could 
 Renamed mapbox.py to geomapbox.py
 Finished geocode(address) which takes an address string input and returns a list containing coordinates
 
-ogal7 -- 2016-12-06
+ogal7 -- 2016-12-07 12:45
 Got rauth to work, yelp.py successfully loads json object when given coordinates
 
 st234pa -- 2016-12-07 12:52
@@ -56,6 +56,7 @@ Got rid of price level in homepage.html, app.py.
 P0rkins -- 2016-12-07 1:03
 Started work on Google Maps Geolocation API stuff
 
-
+ogal7 -- 2016-12-07 1:52
+Finished yelp.py and modifications to app.py to link it up with yelp.py
 
 
