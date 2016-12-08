@@ -80,3 +80,6 @@ Got rid of the bkgd image, it was being troublesome and uggo. More styling to co
 
 st234pa -- 2016-12-07 9:28
 Added more styling, but it's not showing up right now, perhaps CSS caching issues.
+
+st234pa -- 2016-12-07 9:59
+Found, fixed typos in style.css!
