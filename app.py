@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 #import os
 import utils.googlemaps
 #from utils import yelp
-#import utils.mapbox
+import utils.geomapbox
 import utils.yelp
 app = Flask(__name__)
 #Bootstrap(app)
@@ -29,9 +29,14 @@ def results():
     print distance
     businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
     jsList = utils.yelp.makeJsList(businessList)
+    loc=[]
+    loc.append(address[1])
+    loc.append(address[0])
+    print address
+    print loc
     #print price
     #return render_template('results.html', jsList=jsList,businessList=businessList)
-    return render_template('results.html',jsList=jsList,businessList=businessList)
+    return render_template('results.html',jsList=jsList,businessList=businessList,loc=loc)
 
 
 def getDis(data):
@@ -72,12 +77,13 @@ def getRating(data):
     return qual
 
 def getAddress(data):
-    address=''
+    address=[]
     if data["cur_or_addr"] == 'yes':
         address=utils.googlemaps.locate()
         print 'placeholder'
     else:
-        address=data['address']
+        address=utils.geomapbox.geocode(data['address'])
+        print address
     return address
     
 			
