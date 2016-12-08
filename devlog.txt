@@ -93,5 +93,8 @@ Fixed radio buttons in homepage.html. getRating(), getAddress(), and getDistance
 ogal7 -- 2016-12-08 12:33
 Tweaked files in rauth directory so import rauth would work in yelp.py
 
+skabir8 -- 2016-12-08 2:03
+Changed homepage so radiobuttons would have values. Changed code in app.py to compensate for this
+
 
 

@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 #from flask_bootstrap import Bootstrap
 
 #import os
-#import utils.googlemaps
+import utils.googlemaps
 #from utils import yelp
 #import utils.mapbox
 import utils.yelp
@@ -27,7 +27,7 @@ def results():
     address = getAddress(request.form)
     print rating
     print distance
-    businessList = utils.yelp.makeBusinessesList(rating,distance,40.7179460,-74.0139050)
+    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
     jsList = utils.yelp.makeJsList(businessList)
     #print price
     #return render_template('results.html', jsList=jsList,businessList=businessList)
@@ -35,13 +35,14 @@ def results():
 
 
 def getDis(data):
-    if 'birdseye' in data:
+    distance=50
+    if data["dist"] == 'birdseye':
         distance=50
-    elif 'fourblocks' in data:
+    elif data["dist"] == 'fourblocks':
         distance=400
-    elif 'walking' in data:
+    elif data["dist"] == 'walking':
         distance=800
-    elif 'driving' in data:
+    elif data["dist"] == 'driving':
         distance=2000
     return distance
 
@@ -57,22 +58,23 @@ def getDis(data):
     return price
 '''
 def getRating(data):
-    if 'onestar' in data:
+    qual=1
+    if data["qual"] == 'onestar':
         qual=1
-    elif 'twostar' in data:
+    elif data["qual"] == 'twostar':
         qual = 2
-    elif 'threestar' in data:
+    elif data["qual"] == 'threestar':
         qual = 3
-    elif 'fourstar' in data:
+    elif data["qual"] == 'fourstar':
         qual = 4
-    elif 'fivestar' in data:
+    elif data["qual"] == 'fivestar':
         qual = 5
     return qual
 
 def getAddress(data):
     address=''
-    if 'usecurrentloc' in data:
-        #address=utils.googlemaps.locate()
+    if data["cur_or_addr"] == 'yes':
+        address=utils.googlemaps.locate()
         print 'placeholder'
     else:
         address=data['address']
