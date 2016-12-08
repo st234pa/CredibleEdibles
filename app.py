@@ -27,15 +27,12 @@ def results():
     address = getAddress(request.form)
     print rating
     print distance
-    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
-    jsList = utils.yelp.makeJsList(businessList)
     loc=[]
     loc.append(address[1])
     loc.append(address[0])
+    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
+    jsList = utils.yelp.makeJsList(businessList)
     print address
-    print loc
-    #print price
-    #return render_template('results.html', jsList=jsList,businessList=businessList)
     return render_template('results.html',jsList=jsList,businessList=businessList,loc=loc)
 
 
@@ -80,10 +77,12 @@ def getAddress(data):
     address=[]
     if data["cur_or_addr"] == 'yes':
         address=utils.googlemaps.locate()
-        print 'placeholder'
     else:
         address=utils.geomapbox.geocode(data['address'])
-        print address
+        newadd=[]
+        newadd.append(address[1])
+        newadd.append(address[0])
+        return newadd
     return address
     
 			

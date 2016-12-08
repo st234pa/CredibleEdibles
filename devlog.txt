@@ -96,5 +96,8 @@ Tweaked files in rauth directory so import rauth would work in yelp.py
 skabir8 -- 2016-12-08 2:03
 Changed homepage so radiobuttons would have values. Changed code in app.py to compensate for this
 
+skabir8 -- 2016-12-08 2:48
+Fixed issue with mapbox geo code. Custom adderess now works and renders results correctly.
+
 
 
