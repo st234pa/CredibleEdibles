@@ -71,3 +71,6 @@ nvm finished locate with googledocs. googlemaps.py done
 
 st234pa -- 2016-12-07 2:55
 Fixed the jinja rendering so quotes are rendered. Map finally loads in results.html, using test center, but still doesn't add features. Need to add back to homepage button, fix the size of the map. 
+
+st234pa -- 2016-12-07 9:04
+Fixed the import utils.yelp statement in app.py. Test data now works!!

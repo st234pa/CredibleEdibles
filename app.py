@@ -4,9 +4,9 @@ from flask import Flask, render_template, request, session, redirect, url_for
 
 #import os
 #import utils.googlemaps
-from utils import yelp
+#from utils import yelp
 #import utils.mapbox
-
+import utils.yelp
 app = Flask(__name__)
 #Bootstrap(app)
 
