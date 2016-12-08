@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <h2 id="form_head">What kinds of credible edibles are you looking for?</h2><br>
+      
       <form action="/results/" method="POST">
 	<div class="row">
 	  <div class="col-lg-8">
@@ -12,15 +13,13 @@
 	  </div>
 	</div>
 	<div class="row">
-	  <div class="col-lg-4">
-	    <div class="radio">
-	      <label><input type="radio" name="usecurrentloc">Use my current location</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-4">
+	  <div class="col-lg-8">
+	    <label class="radio-inline">
+	      <input type="radio" name="cur_or_addr">Use my current location
+	    </label>
 	    <div class="input-group">
 	      <span class="input-group-addon">
-		<input type="radio" aria-label="..." name="useaddress">
+		<input type="radio" aria-label="..." name="cur_or_addr">
 	      </span>
 	      <input type="text" class="form-control" placeholder="Enter an address" aria-label="..." name="address">
 	    </div><!--input group-->
@@ -28,65 +27,49 @@
 	</div><!--row-->
 	<div class="row">
 	  <div class="col-lg-8">
-	    <br>
-	    <p>How far do you want to go from there?</p>
+	    <br><p>How far do you want to go from there?</p>
 	  </div>
-	</div>
-	<div class="row">
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="birdseye">Bird's Eye</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="fourblocks">4 Blocks</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="walking">Walking Distance</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="driving">Driving</label>
-	    </div><!--radio-->
-	  </div><!--col-->
-	</div><!--row-->
+	</div>	
 	<div class="row">
 	  <div class="col-lg-8">
-	    <br>
-	    <p>How much qual do you want?</p>
+	    <label class="radio-inline">
+	      <input type="radio" name="dist">Bird's Eye
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="dist">Four blocks
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="dist">Walking
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="dist">Driving
+	    </label>
 	  </div>
 	</div>
 	<div class="row">
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="onestar">Grimey</label>
-	    </div>
+	  <div class="col-lg-8">
+	    <br><p>How much qual do you want?</p>
 	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="twostar">Edible</label>
-	    </div>
+	</div>	
+	<div class="row">
+	  <div class="col-lg-8">
+	    <label class="radio-inline">
+	      <input type="radio" name="qual">Grimy
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="qual">Edible
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="qual">Meh
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="qual">Credible
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="qual">Incredible
+	    </label>
 	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="threestar">Meh</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="fourstar">Credible</label>
-	    </div>
-	  </div>
-	  <div class="col-lg-2">
-	    <div class="radio">
-	      <label><input type="radio" name="fivestar">Incredible</label>
-	    </div><!--radio-->
-	  </div><!--col2-->
-	</div><!--row-->
+	</div>
 	<div class="row">
 	  <div class="col-lg-8">
 	    <br>
@@ -94,8 +77,8 @@
 	  </div>
 	</div>
       </form>
-    </div><!--col8-->
-  </div><!--row-->
-</div><!--container-->
+    </div>
+  </div>
+</div>
 
 {% endblock %}

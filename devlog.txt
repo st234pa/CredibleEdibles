@@ -86,3 +86,6 @@ Found, fixed typos in style.css!
 
 st234pa -- 2016-12-07 10:13
 Added Lobster and Raleway from fonts.googleapis.com. Centered the form and the results list.
+
+st234pa -- 2016-12-07 11:13
+Fixed radio buttons in homepage.html. getRating(), getAddress(), and getDistance() need to be adjusted.
