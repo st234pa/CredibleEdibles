@@ -78,4 +78,5 @@ Fixed the import utils.yelp statement in app.py. Test data now works!!
 st234pa -- 2016-12-07 9:28
 Got rid of the bkgd image, it was being troublesome and uggo. More styling to come though. Also fixed some sizing for the map.
 
-
+st234pa -- 2016-12-07 9:28
+Added more styling, but it's not showing up right now, perhaps CSS caching issues.
