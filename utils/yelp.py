@@ -1,9 +1,17 @@
-import urllib2 
+#!/usr/bin/python
 import sys
+script_path = "/rauth"
+if script_path in sys.path:
+    print "oops, it's already in there."
+else:
+    sys.path.insert(0, script_path)
+
 from flask import request
-import json, urllib, base64
+import json, urllib, urllib2
 from requests_oauth2 import OAuth2
 import rauth
+#from rauth import oauth, service, session, utils, compat
+
 
 #oauth help: creds to http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
 

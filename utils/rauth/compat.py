@@ -6,6 +6,7 @@
     A module providing tools for cross-version compatibility.
 '''
 import sys
+import urllib
 
 
 if sys.version_info < (3, 0):  # pragma: no cover
