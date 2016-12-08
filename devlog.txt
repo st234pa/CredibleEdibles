@@ -97,7 +97,8 @@ skabir8 -- 2016-12-08 2:03
 Changed homepage so radiobuttons would have values. Changed code in app.py to compensate for this
 
 skabir8 -- 2016-12-08 2:48
-Fixed issue with mapbox geo code. Custom adderess now works and renders results correctly.
+Fixed issue with mapbox geo code. Custom address now works and renders results correctly.
 
-
+st234pa -- 2016-12-08 4:47
+Added the ratings to the results.html list. Note that we can't use requests, so we need to fix geomapbox and googlemaps. Added a back to home button in results.html.
 
