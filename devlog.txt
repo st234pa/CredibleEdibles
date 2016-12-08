@@ -103,5 +103,7 @@ st234pa -- 2016-12-08 4:47
 Added the ratings to the results.html list. Note that we can't use requests, so we need to fix geomapbox and googlemaps. Added a back to home button in results.html.
 
 st234pa -- 2016-12-08 4:56
-Added /homepage/ route to app.py, hopefully back to home works.
+Added /homepage/ route to app.py, hopefully back to home works. 
 
+st234pa -- 2016-12-08 4:59
+Actually, changed form action to "/" in results.html
