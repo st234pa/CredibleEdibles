@@ -89,3 +89,9 @@ Added Lobster and Raleway from fonts.googleapis.com. Centered the form and the r
 
 st234pa -- 2016-12-07 11:13
 Fixed radio buttons in homepage.html. getRating(), getAddress(), and getDistance() need to be adjusted. Got rid of test center loc.
+
+ogal7 -- 2016-12-08 12:33
+Tweaked files in rauth directory so import rauth would work in yelp.py
+
+
+
