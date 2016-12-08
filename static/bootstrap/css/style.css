@@ -1,6 +1,5 @@
 body {
-    background-image: url("bkgd.jpg");
-    background-size: cover;
+    background-color: lightsteelblue;
     color: white;
 }
  #authors {

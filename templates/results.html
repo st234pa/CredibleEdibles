@@ -7,11 +7,14 @@
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css" rel="stylesheet"/>
 <style>
   html, body, #map-container {
-  height: 95%;
+  height: 80%;
+  
 }
 
 #map {
   height: 100%;
+  width: 80%;
+  margin: auto;
   }
 </style>
 {% endblock %}
@@ -22,6 +25,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
+      <br>
       {% for i in jsList %}
 	  
       <h6> {{i['properties']['title']}}</h6>
@@ -33,7 +37,7 @@
 		{% endif %}
 	  {% endfor %}
       <!--<p>{{i["address"]}}</p>-->
-      <br><br><br>
+      <br><br>
       {% endfor %}
     </div>
   </div>
@@ -44,7 +48,7 @@
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v9',
   center: [-74.0139, 40.7180],
-  zoom: 5
+  zoom: 15
   });
 
   map.on('load', function () {

@@ -74,3 +74,8 @@ Fixed the jinja rendering so quotes are rendered. Map finally loads in results.h
 
 st234pa -- 2016-12-07 9:04
 Fixed the import utils.yelp statement in app.py. Test data now works!!
+
+st234pa -- 2016-12-07 9:28
+Got rid of the bkgd image, it was being troublesome and uggo. More styling to come though. Also fixed some sizing for the map.
+
+
