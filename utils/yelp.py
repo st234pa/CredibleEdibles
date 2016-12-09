@@ -37,10 +37,10 @@ def get_search_parameters(lat,longi,distance):
 
 def get_results(params):
  
-  consumer_key = "Ov-ytNFKKBZfdHYTkdQAoQ"
-  consumer_secret = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
-  token = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
-  token_secret = "CNMwy2PUHaXTyXTQe4Qv2lk4BuE"
+  consumer_key = ""
+  consumer_secret = ""
+  token = ""
+  token_secret = ""
    
   session = rauth.OAuth1Session(
     consumer_key = consumer_key
