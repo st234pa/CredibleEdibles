@@ -116,3 +116,6 @@ Actually, Olivia only unpublicized the yelp keys. Lorenz needs to do that for go
 
 st234pa -- 2016-12-08 11:30
 Got rid of mapboxgl.accessToken in JS from results.html. Added btn class to Back to home.
+
+st234pa -- 2016-12-09 2:32
+Wrote up the README. Check to see if there is anything more to add!
