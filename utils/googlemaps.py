@@ -3,7 +3,7 @@ import urllib2
 import urllib
 import key
 
-import json, requests #requests > urllib2 any day of the week
+import json #requests > urllib2 any day of the week
 
 def locate():
 	token = ""

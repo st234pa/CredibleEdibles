@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 #from flask_bootstrap import Bootstrap
 
 #import os
