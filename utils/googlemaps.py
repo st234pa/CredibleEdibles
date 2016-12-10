@@ -3,19 +3,23 @@
 
 import cgi
 import urllib2
+import urllib
 
 import json, requests #requests > urllib2 any day of the week
 
 def locate():
+	url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCcGLxvBq_qRytZgRUQJsLfgHapv9anAqw"
+	query_args = {}
 	#url for accessing google maps geolcation api
-    url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCcGLxvBq_qRytZgRUQJsLfgHapv9anAqw"
-    #gets page info
-    data = requests.post(url).text
-    #encodes into utf
-    response = data.encode('utf8')
-    #turns into dictionary
-    dic = json.loads(response)
-    loc = []
-    loc.append(dic['location']['lat'])
-    loc.append(dic['location']['lng'])
-    return loc
+	data = urllib.urlencode(query_args)
+	#gets page info
+	request = urllib2.Request(url, data)
+	response = urllib2.urlopen(request)
+	stuff = response.read()
+	#encodes into utf
+	#turns into dictionary
+	dic = json.loads(stuff)
+	loc = []
+	loc.append(dic['location']['lat'])
+	loc.append(dic['location']['lng'])
+	return loc
