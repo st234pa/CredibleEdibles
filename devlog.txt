@@ -119,3 +119,6 @@ Got rid of mapboxgl.accessToken in JS from results.html. Added btn class to Back
 
 st234pa -- 2016-12-09 2:32
 Wrote up the README. Check to see if there is anything more to add!
+
+st234pa - 2016-12-09 10:48
+Added mapbox_accessToken as a variable to results.html, which app.py has to set and pass.
