@@ -42,7 +42,6 @@ def geocode(address):
 	response = urllib2.urlopen(url)
 	data = response.read()
 	dic = json.loads(data)
-	print dic['features'][0]['geometry']['coordinates']
 	return dic['features'][0]['geometry']['coordinates']
 
 	##~~~~~~~~OLD stuff WITH REQUESTS~~~~~~~~~~~~~##
