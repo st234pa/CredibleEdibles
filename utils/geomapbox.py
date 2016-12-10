@@ -36,26 +36,22 @@ import json
 #takes an address and returns the coordinates
 
 def geocode(address):
-	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + address + ".json?access_token=pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g"
-	u = urllib2.urlopen(url)
-	data = u.read()
-	datapython = json.loads(data)
-	print str(datapython)
+	query = ""
+	query = address.replace(" ", "%20")
+	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/\"" + query + "\".json?access_token=pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g"
+	response = urllib2.urlopen(url)
+	data = response.read()
+	dic = json.loads(data)
+	print dic['features'][0]['geometry']['coordinates']
+	return dic['features'][0]['geometry']['coordinates']
 
-	##~~~~~~~~OLD SHIT WITH REQUESTS~~~~~~~~~~~~~##
-    #url for accessing mapbox api
-    #url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + address + ".json?access_token=pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g"
-    #gets page info
-    #data = requests.get(url).text
-    #encodes into utf
-    #response = data.encode('utf8')
-    #turns into dictionary
-    #dic = json.loads(response)
-    #return dic['features'][0]['geometry']['coordinates']
-
-
-
-geocode("345 Chambers Street")
-
-
-
+	##~~~~~~~~OLD stuff WITH REQUESTS~~~~~~~~~~~~~##
+	#url for accessing mapbox api
+	#url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + address + ".json?access_token=pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g"
+	#gets page info
+	#data = requests.get(url).text
+	#encodes into utf
+	#response = data.encode('utf8')
+	#turns into dictionary
+	#dic = json.loads(response)
+	#return dic['features'][0]['geometry']['coordinates']

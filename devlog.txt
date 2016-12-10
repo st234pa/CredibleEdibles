@@ -128,3 +128,6 @@ Wrote key.py to create a dictionary of keys/tokens and stuff of that nature. Oth
 
 st234pa - 2016-12-09 11:29
 Updated key.py so that getkeydict() opens keys.txt correctly, because keys.txt is in the root dir.
+
+P0rkins -- 2016-12-09 11:38
+changed from requests to urllib2 in geomapbox.py and googlemaps.py
