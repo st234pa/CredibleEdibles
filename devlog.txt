@@ -125,3 +125,6 @@ Added mapbox_accessToken as a variable to results.html, which app.py has to set 
 
 st234pa - 2016-12-09 11:16
 Wrote key.py to create a dictionary of keys/tokens and stuff of that nature. Other python files should import key so they can create that dictionary.
+
+st234pa - 2016-12-09 11:29
+Updated key.py so that getkeydict() opens keys.txt correctly, because keys.txt is in the root dir.

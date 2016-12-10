@@ -1,5 +1,5 @@
 def getkeydict():
-    f = open("keys.txt", r)
+    f = open("../keys.txt", r)
     listkeys = f.readlines()
     #-----List ordering-----
     #0. Yelp consumer_key
