@@ -3,6 +3,7 @@
 
 import cgi
 import urllib2
+import key
 
 #import json, requests
 import json
@@ -36,12 +37,15 @@ import json
 #takes an address and returns the coordinates
 
 def geocode(address):
+	token = ""
+	token = key.getkeydict()['mapbox_access_token']
 	query = ""
 	query = address.replace(" ", "%20")
-	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/\"" + query + "\".json?access_token=pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g"
+	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/\"" + query + "\".json?access_token=" + token
 	response = urllib2.urlopen(url)
 	data = response.read()
 	dic = json.loads(data)
+	print dic['features'][0]['geometry']['coordinates']
 	return dic['features'][0]['geometry']['coordinates']
 
 	##~~~~~~~~OLD stuff WITH REQUESTS~~~~~~~~~~~~~##

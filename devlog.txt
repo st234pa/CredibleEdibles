@@ -137,3 +137,6 @@ Fixed key.py to get rid of newlines in the keys.
 
 st234pa - 2016-12-09 11:52
 Closed file in key.py
+
+P0rkins - 2016-12-09 12:06
+Removed API keys from geomapbox and googlemaps. now relies on key.py
