@@ -7,6 +7,7 @@ else:
     sys.path.insert(0, script_path)
 
 from flask import request
+import key
 import json, urllib, urllib2
 from requests_oauth2 import OAuth2
 import rauth
@@ -36,11 +37,12 @@ def get_search_parameters(lat,longi,distance):
 # 			more in depth authentication
 
 def get_results(params):
- 
-  consumer_key = ""
-  consumer_secret = ""
-  token = ""
-  token_secret = ""
+	
+  dic = key.getkeydict()
+  consumer_key = dic['yelp_consumer_key']
+  consumer_secret = dic['yelp_consumer_secret']
+  token = dic['yelp_token']
+  token_secret = dic['yelp_token_secret']
    
   session = rauth.OAuth1Session(
     consumer_key = consumer_key

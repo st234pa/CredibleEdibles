@@ -143,3 +143,7 @@ Removed API keys from geomapbox and googlemaps. now relies on key.py
 
 st234pa - 2016-12-10 12:18
 Moved key.py to root, hopefully this works.
+
+ogal7 - 2016-12-10 4:42
+linked yelp.py to key.py so it could read from keys.txt
+
