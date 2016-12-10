@@ -147,3 +147,5 @@ Moved key.py to root, hopefully this works.
 ogal7 - 2016-12-10 4:42
 linked yelp.py to key.py so it could read from keys.txt
 
+st234pa - 2016-12-11 6:41
+Added a getToken() function to geomapbox.py, added mapbox_accessToken as a variable to pass when rendering results.html.

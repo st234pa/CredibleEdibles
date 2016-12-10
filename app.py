@@ -34,7 +34,8 @@ def results():
     businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
     jsList = utils.yelp.makeJsList(businessList)
     print address
-    return render_template('results.html',jsList=jsList,businessList=businessList,loc=loc)
+    mapbox_accessToken = utils.geomapbox.getToken()
+    return render_template('results.html',jsList=jsList,businessList=businessList,loc=loc, mapbox_accessToken=mapbox_accessToken)
 
 
 def getDis(data):
