@@ -1,6 +1,3 @@
-#Google Maps Geolocation API key
-#AIzaSyDo7RrtqBzWPeQrNz-ksCGPYuooJU30nMc
-
 import cgi
 import urllib2
 import urllib

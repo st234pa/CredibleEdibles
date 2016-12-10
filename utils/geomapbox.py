@@ -1,6 +1,3 @@
-#Mapbox access token
-#pk.eyJ1IjoibGF1cmVudGl1czkxMiIsImEiOiJjaXdkd2k2cnIwZDJ0MnpwZmViaWZ4OW9lIn0.eXZa4xOeNmH_Zuw-MukY9g
-
 import cgi
 import urllib2
 import key
