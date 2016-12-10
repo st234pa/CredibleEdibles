@@ -134,3 +134,6 @@ changed from requests to urllib2 in geomapbox.py and googlemaps.py
 
 st234pa - 2016-12-09 11:45
 Fixed key.py to get rid of newlines in the keys.
+
+st234pa - 2016-12-09 11:52
+Closed file in key.py
