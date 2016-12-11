@@ -9,7 +9,7 @@ else:
 from flask import request
 import key
 import json, urllib, urllib2
-from requests_oauth2 import OAuth2
+#from requests_oauth2 import OAuth2
 import rauth
 #from rauth import oauth, service, session, utils, compat
 
