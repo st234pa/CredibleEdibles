@@ -53,7 +53,7 @@
   var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v9',
-  center: {{loc}},
+  center: {{loc | safe}},
   zoom: 15
   });
 

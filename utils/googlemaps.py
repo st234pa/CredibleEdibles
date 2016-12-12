@@ -20,6 +20,6 @@ def locate():
 	#turns into dictionary
 	dic = json.loads(stuff)
 	loc = []
-	loc.append(dic['location']['lat'])
-	loc.append(dic['location']['lng'])
+	loc.append(float(unicode(dic['location']['lat']).encode('utf-8')))
+	loc.append(float(unicode(dic['location']['lng']).encode('utf-8')))
 	return loc
