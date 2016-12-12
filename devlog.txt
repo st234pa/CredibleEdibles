@@ -149,3 +149,6 @@ linked yelp.py to key.py so it could read from keys.txt
 
 st234pa - 2016-12-11 6:41
 Added a getToken() function to geomapbox.py, added mapbox_accessToken as a variable to pass when rendering results.html. Also deleted import requests in googlemaps.py because it doesn't need it anymore!
+
+st234pa - 2016-12-11 2:26
+Added .encode('utf-8') to str(key) in yelp.py. Changed str() to unicode()

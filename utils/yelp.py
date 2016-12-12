@@ -94,7 +94,7 @@ def makeJsList(bizList):
 			lon = bizList[i][key]['coord']['longitude']
 			placeDict["type"] = "Feature"
 			placeDict["geometry"] = {"type": "Point", "coordinates": [lon, lat]}
-			placeDict["properties"] = {"title": str(key).encode('utf-8'), "icon":"monument"}
+			placeDict["properties"] = {"title": unicode(key).encode('utf-8'), "icon":"monument"}
 			returnList.append(placeDict)
 			i+=1
 	return returnList	
