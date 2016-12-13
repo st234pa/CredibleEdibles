@@ -17,10 +17,10 @@ import rauth
 #oauth help: creds to http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
 
 #distance is in meters, this is **from the form**
-def get_search_parameters(lat,longi,distance):
+def get_search_parameters(lat,longi,distance, term):
   #See the Yelp API for more details
   params = {}
-  params["term"] = "restaurant"
+  params["term"] = term
   params["ll"] = "{},{}".format(str(lat),str(longi))
   params["radius_filter"] = distance
   params["limit"] = "10"
@@ -62,9 +62,20 @@ def get_results(params):
 
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
 #shiz i need to return: name, coordinates, rating, address, image
-def makeBusinessesList(rating, distance, lat, longi):
+def makeBusinessesList(rating, distance, lat, longi, terms):
 	biz = []
-	nasty = get_results(get_search_parameters(lat,longi,distance))
+	nasty = get_results(get_search_parameters(lat,longi,distance,terms[0]))
+	for icky in nasty['businesses']:
+		if icky['rating'] >= rating:
+			placeInfo = {}
+			placeInfo['rating'] = icky['rating']
+			placeInfo['address'] = icky['location']['display_address']
+			placeInfo['coord'] = icky['location']['coordinate']		
+			bigdict = {}
+			bigdict[icky['name']] = placeInfo
+			biz.append(bigdict)
+
+	nasty = get_results(get_search_parameters(lat,longi,distance,terms[1]))
 	for icky in nasty['businesses']:
 		if icky['rating'] >= rating:
 			placeInfo = {}
@@ -93,8 +104,8 @@ def makeJsList(bizList):
 			lat = bizList[i][key]['coord']['latitude']
 			lon = bizList[i][key]['coord']['longitude']
 			placeDict["type"] = "Feature"
-			placeDict["geometry"] = {"type": "Point", "coordinates": [lon, lat]}
-			placeDict["properties"] = {"title": unicode(key).encode('utf-8'), "icon":"monument"}
+			placeDict["geometry"] = {"type": unicode("Point").encode('utf-8'), "coordinates": [unicode(lon).encode('utf-8'), unicode(lat).encode('utf-8')]}
+			placeDict["properties"] = {"title": unicode(key).encode('utf-8'), "icon":unicode("monument").encode('utf-8')}
 			returnList.append(placeDict)
 			i+=1
 	return returnList	

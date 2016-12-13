@@ -31,7 +31,7 @@ def results():
     loc=[]
     loc.append(address[1])
     loc.append(address[0])
-    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
+    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1],["food","restaurant"])
     jsList = utils.yelp.makeJsList(businessList)
     print address
     mapbox_accessToken = utils.geomapbox.getToken()
