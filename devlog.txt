@@ -161,3 +161,6 @@ Added a search param to yelp.py and utf-8 encoded JS data
 
 st234py - 2016-12-14 9:45
 Added a text input id="category" for category. app.py and yelp.py need to be updated. Got rid of twitter_retrieve example code. Added design_changes.txt.
+
+ogal7 - 2016-12-15 3:30
+Reverted files to old version because new inputs were not working.
