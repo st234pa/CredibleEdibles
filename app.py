@@ -78,7 +78,7 @@ def getRating(data):
 def getAddress(data):
     address=[]
     if data["cur_or_addr"] == 'yes':
-        address=utils.googlemaps.locate()
+        address=utils.googlemaps.geocode()
     else:
         address=utils.geomapbox.geocode(data['address'])
         newadd=[]
