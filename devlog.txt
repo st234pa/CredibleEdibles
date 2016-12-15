@@ -165,6 +165,8 @@ Added a text input id="category" for category. app.py and yelp.py need to be upd
 ogal7 - 2016-12-15 3:30
 Reverted files to old version because new inputs were not working.
 
-skabir8- 2016-12-15 4:22
+skabir8 - 2016-12-15 4:22
 Fixed issue with mapbox key. fixed problem within app fxn.
 
+st234pa - 2016-12-15 7:09
+Added requests_oauth2 to README.
