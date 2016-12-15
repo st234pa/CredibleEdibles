@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for
 #from flask_bootstrap import Bootstrap
 
 #import os
@@ -14,7 +14,6 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/homepage/")
 def main():
     return render_template('homepage.html')
 
@@ -31,11 +30,14 @@ def results():
     loc=[]
     loc.append(address[1])
     loc.append(address[0])
-    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1],["food","restaurant"])
+    businessList = utils.yelp.makeBusinessesList(rating,distance,address[0],address[1])
     jsList = utils.yelp.makeJsList(businessList)
     print address
     mapbox_accessToken = utils.geomapbox.getToken()
+    mapbox_accessToken= "".join(mapbox_accessToken.split())
+    print mapbox_accessToken
     return render_template('results.html',jsList=jsList,businessList=businessList,loc=loc, mapbox_accessToken=mapbox_accessToken)
+
 
 
 def getDis(data):
@@ -87,7 +89,7 @@ def getAddress(data):
         return newadd
     return address
     
-            
+			
 
 
 

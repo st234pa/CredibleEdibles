@@ -7,9 +7,8 @@ else:
     sys.path.insert(0, script_path)
 
 from flask import request
-import key
 import json, urllib, urllib2
-#from requests_oauth2 import OAuth2
+from requests_oauth2 import OAuth2
 import rauth
 #from rauth import oauth, service, session, utils, compat
 
@@ -17,10 +16,10 @@ import rauth
 #oauth help: creds to http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
 
 #distance is in meters, this is **from the form**
-def get_search_parameters(lat,longi,distance, term):
+def get_search_parameters(lat,longi,distance):
   #See the Yelp API for more details
   params = {}
-  params["term"] = term
+  params["term"] = "restaurant"
   params["ll"] = "{},{}".format(str(lat),str(longi))
   params["radius_filter"] = distance
   params["limit"] = "10"
@@ -37,12 +36,11 @@ def get_search_parameters(lat,longi,distance, term):
 # 			more in depth authentication
 
 def get_results(params):
-	
-  dic = key.getkeydict()
-  consumer_key = dic['yelp_consumer_key']
-  consumer_secret = dic['yelp_consumer_secret']
-  token = dic['yelp_token']
-  token_secret = dic['yelp_token_secret']
+ 
+  consumer_key = "Ov-ytNFKKBZfdHYTkdQAoQ"
+  consumer_secret = "b1z2H2DCRH4hf4aQo1zqaTyYYJA"
+  token = "ZCsTHSJC7DAlSVmSQS0e7pxQDDCH_Thk"
+  token_secret = "CNMwy2PUHaXTyXTQe4Qv2lk4BuE"
    
   session = rauth.OAuth1Session(
     consumer_key = consumer_key
@@ -62,20 +60,9 @@ def get_results(params):
 
 #uses search results helper function, creates a big list of businesses and the attributes we need to know
 #shiz i need to return: name, coordinates, rating, address, image
-def makeBusinessesList(rating, distance, lat, longi, terms):
+def makeBusinessesList(rating, distance, lat, longi):
 	biz = []
-	nasty = get_results(get_search_parameters(lat,longi,distance,terms[0]))
-	for icky in nasty['businesses']:
-		if icky['rating'] >= rating:
-			placeInfo = {}
-			placeInfo['rating'] = icky['rating']
-			placeInfo['address'] = icky['location']['display_address']
-			placeInfo['coord'] = icky['location']['coordinate']		
-			bigdict = {}
-			bigdict[icky['name']] = placeInfo
-			biz.append(bigdict)
-
-	nasty = get_results(get_search_parameters(lat,longi,distance,terms[1]))
+	nasty = get_results(get_search_parameters(lat,longi,distance))
 	for icky in nasty['businesses']:
 		if icky['rating'] >= rating:
 			placeInfo = {}
@@ -104,8 +91,8 @@ def makeJsList(bizList):
 			lat = bizList[i][key]['coord']['latitude']
 			lon = bizList[i][key]['coord']['longitude']
 			placeDict["type"] = "Feature"
-			placeDict["geometry"] = {"type": unicode("Point").encode('utf-8'), "coordinates": [unicode(lon).encode('utf-8'), unicode(lat).encode('utf-8')]}
-			placeDict["properties"] = {"title": unicode(key).encode('utf-8'), "icon":unicode("monument").encode('utf-8')}
+			placeDict["geometry"] = {"type": "Point", "coordinates": [lon, lat]}
+			placeDict["properties"] = {"title": str(key), "icon":"monument"}
 			returnList.append(placeDict)
 			i+=1
 	return returnList	

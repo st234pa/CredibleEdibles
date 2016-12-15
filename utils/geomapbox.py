@@ -46,8 +46,10 @@ def geocode(address):
 
 def getToken():
         token = ""
-        token = key.getkeydict()['mapbox_access_token']
-        return token
+        token = key.getkeydict()
+        '''['mapbox_access_token']'''
+        return token['mapbox_access_token']
+
 
 ##~~~~~~~~OLD stuff WITH REQUESTS~~~~~~~~~~~~~##
 	#url for accessing mapbox api
