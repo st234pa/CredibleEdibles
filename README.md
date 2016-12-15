@@ -8,7 +8,7 @@ Credible Edibles will take in an address or the user’s location, as well as th
 
 ## How do you use it?
 
-Clone the repo, locally add the text file with the API keys to the root. Make sure flask, rauth, key, urllib, urllib2, json, sys, cgi, and request is installed, and then run app.py!
+Clone the repo, locally add the text file with the API keys to the root. Make sure flask, rauth, key, urllib, urllib2, json, sys, and request is installed, and then run app.py!
 
 ### The homepage
 
