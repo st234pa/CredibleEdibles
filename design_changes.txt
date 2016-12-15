@@ -1,2 +1,2 @@
 - Got rid of price selection in the form in homepage.html
-- 
+- Flask - Variables of some of the functions changed.
